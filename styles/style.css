@@ -20,13 +20,14 @@
   --color-black: #1a202c;
   --color-sidebar: #2d3748;
   --color-gray: #a0aec0;
+  --color-gray-opacity: #a0aec086;
   --color-gray-light: #e2e8f0;
   --color-gray-dark: #718096;
   --radius-sm: 8px;
   --radius-lg: 18px;
   --font-xs: 1.2rem;
   --font-sm: 1.4rem;
-  --shadow: 0 8px 15px #0000000D;
+  --shadow: 0 8px 15px #0000000d;
 }
 /* Typography */
 html {
@@ -65,38 +66,36 @@ h3 {
   padding: 2rem;
 }
 /* badge */
-.badge{
-    display: inline-block;
-    font-size: 1.2rem;
-    border-radius: var(--radius-lg);
-    text-transform: uppercase;
+.badge {
+  display: inline-block;
+  font-size: 1.2rem;
+  border-radius: var(--radius-lg);
+  text-transform: uppercase;
 }
-.badge--primary{
-    padding: 0.3rem 1rem;
-    background-color: var(--color-secondary-light);
-    color: var(--color-secondary-dark);
+.badge--primary {
+  padding: 0.3rem 1rem;
+  background-color: var(--color-secondary-light);
+  color: var(--color-secondary-dark);
 }
-.stary{
-    color: var(--color-secondary);
+.stary {
+  color: var(--color-secondary);
 }
-.non-star{
-    color: var(--color-gray);
+.non-star {
+  color: var(--color-gray-opacity);
 }
 /* Layout */
 .main {
-  height: 100vh;
   background-color: var(--color-gray-light);
 }
 .sidebar {
   display: none;
-  height: 100vh;
   background-color: var(--color-sidebar);
 }
 @media screen and (min-width: 1024px) {
   body {
     display: grid;
     grid-template-rows: auto 1fr;
-    grid-template-columns: 300px 1fr;
+    grid-template-columns: 250px 1fr;
   }
   .sidebar {
     display: block;
@@ -167,56 +166,95 @@ h3 {
   }
 }
 /* Estates */
-.estates{
-    display: grid;
-    grid-template-columns: 1fr;
-    row-gap: 1rem;
+.estates {
+  display: grid;
+  grid-template-columns: 1fr;
+  row-gap: 1rem;
+  margin-bottom: 2rem;
 }
-.estates a:last-child{
-    color: var(--color-primary-dark);
-    margin: 10rem 0;
+.estates a:last-child {
+  color: var(--color-primary-dark);
+  margin: 10rem 0 0;
 }
-.estates__container{
-    display: grid;
-    grid-template-columns: 1fr;
-    row-gap: 10rem;
+.estates__container {
+  display: grid;
+  grid-template-columns: 1fr;
+  row-gap: 10rem;
 }
-.estate{
-    position: relative;
+.estate {
+  position: relative;
 }
-.estate__image{
-    width: calc(100vw - 56px);
+.estate__image {
+  width: calc(100vw - 56px);
+  height: 350px;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
 }
-.estate__image > img{
-    width: 100%;
+.estate__image > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
-.estate__features{
-    width: calc(100vw - 100px);
-    position: absolute;
-    top: 75%;
-    left: 50%;
-    transform: translateX(-50%);
-    background-color: white;
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    padding: 2rem 1.5rem;
-    box-shadow: var(--shadow);
-    border-radius: var(--radius-sm);
+.estate__features {
+  width: calc(100vw - 100px);
+  position: absolute;
+  top: 75%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 2rem 1.5rem;
+  box-shadow: var(--shadow);
+  border-radius: var(--radius-sm);
 }
-.estate__features .price{
-    color: var(--color-black);
+.estate__features .price {
+  color: var(--color-black);
 }
-.estate__features .per{
-    font-size: 1.2rem;
-    color: var(--color-gray-dark);
+.estate__features .per {
+  font-size: 1.2rem;
+  color: var(--color-gray-dark);
 }
-.estate__features .comments{
-    display: flex;
-    gap: 2rem;
+.estate__features .comments {
+  display: flex;
+  gap: 2rem;
 }
 @media screen and (min-width: 768px) {
-    .estates__container{
-        grid-template-columns: 1fr 1fr;
-    }
+  .estates {
+    grid-template-columns: 1fr 1fr;
+    margin-bottom: 10rem;
+  }
+  .estates .title {
+    grid-column: 1/-1;
+  }
+  .estates a:last-child{
+    grid-row: 2/3;
+    grid-column: 2/3;
+    margin: 0;
+    justify-self: end;
+  }
+  .estates__container {
+    grid-column: 1/-1;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 2rem;
+  }
+  .estate__image {
+    width: 100%;
+    height: 100%;
+  }
+  .estate__features {
+    width: calc(100% - 20px);
+  }
+}
+@media screen and (min-width: 1024px) {
+  .estates__container {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+  .estate__features .desc {
+    font-size: 1.3rem;
+  }
+  .estate__features .comments {
+    font-size: 1.2rem;
+  }
 }
