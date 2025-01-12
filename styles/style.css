@@ -19,6 +19,7 @@
   --color-white: #ffffff;
   --color-black: #1a202c;
   --color-sidebar: #2d3748;
+  --color-input: #4a5568;
   --color-gray: #a0aec0;
   --color-gray-opacity: #a0aec086;
   --color-gray-light: #e2e8f0;
@@ -101,6 +102,7 @@ h3 {
     display: block;
     grid-row: 1/-1;
     grid-column: 1/2;
+    color: var(--color-gray);
   }
 }
 /* Main-Header */
@@ -228,7 +230,7 @@ h3 {
   .estates .title {
     grid-column: 1/-1;
   }
-  .estates a:last-child{
+  .estates a:last-child {
     grid-row: 2/3;
     grid-column: 2/3;
     margin: 0;
@@ -257,4 +259,41 @@ h3 {
   .estate__features .comments {
     font-size: 1.2rem;
   }
+}
+/* Sidebar */
+.sidebar__logo {
+  background-color: var(--color-black);
+  padding: 2rem 3rem;
+}
+.filters__room {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 1rem;
+  row-gap: 2rem;
+}
+.filters__room .form-control:last-child {
+  grid-column: 1/-1;
+}
+label {
+  display: block;
+  margin-bottom: 1rem;
+}
+.filters__room .list {
+  display: inline-block;
+  position: relative;
+}
+.sidebar__input {
+  background-color: var(--color-input);
+  width: 100%;
+  border: 0;
+  outline: 0;
+  border-radius: var(--radius-sm);
+  padding: 0.7rem 2.7rem 0.7rem 1rem;
+}
+.chevron {
+  font-size: 1.2rem;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 10px;
 }
