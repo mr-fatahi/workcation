@@ -5,6 +5,7 @@
 }
 body,
 button,
+input,
 ::placeholder {
   font-family: "graphik";
 }

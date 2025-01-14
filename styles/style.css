@@ -66,7 +66,22 @@ h3 {
 .block {
   padding: 2rem;
 }
-/* badge */
+/* Button */
+.btn{
+  cursor: pointer;
+  border: 0;
+  outline: 0;
+  padding: 1rem 2rem;
+  border-radius: var(--radius-sm);
+}
+.btn--primary{
+  background-color: var(--color-primary);
+  color: white;
+}
+.btn--block{
+  width: 100%;
+}
+/* Badge */
 .badge {
   display: inline-block;
   font-size: 1.2rem;
@@ -173,7 +188,7 @@ h3 {
   display: grid;
   grid-template-columns: 1fr;
   row-gap: 1rem;
-  margin-bottom: 2rem;
+  margin-bottom: 5rem;
 }
 .estates a:last-child {
   color: var(--color-primary-dark);
@@ -183,17 +198,15 @@ h3 {
   grid-template-columns: 1fr;
 }
 .estate__image {
-  height: 450px;
   border-radius: var(--radius-sm);
   overflow: hidden;
 }
 .estate__image > img {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
+  height: auto;
 }
 .estate__features {
-  width: calc(100% - 10%);
+  width: 90%;
   position: relative;
   top: -60px;
   left: 5%;
@@ -235,9 +248,6 @@ h3 {
     grid-template-columns: 1fr 1fr;
     column-gap: 2rem;
   }
-  .estate__image {
-    height: 300px;
-  }
 }
 @media screen and (min-width: 1140px) {
   .estates__container {
@@ -251,6 +261,9 @@ h3 {
   }
 }
 /* Sidebar */
+.sidebar{
+  position: relative;
+}
 .sidebar__logo {
   background-color: var(--color-black);
   padding: 2rem 3rem;
@@ -260,6 +273,9 @@ h3 {
   grid-template-columns: 1fr 1fr;
   gap: 1rem;
   border-bottom: 2px solid var(--color-black);
+}
+.filters__room input[type="text"]{
+  color: white;
 }
 .filters__room .form-control:last-child {
   grid-column: 1/-1;
@@ -282,22 +298,23 @@ h3 {
   padding: 0.7rem 2.7rem 0.7rem 1rem;
 }
 .chevron {
+  color: white;
   font-size: 1.2rem;
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
   right: 10px;
 }
-.filters__type{
+.filters__type {
   border-bottom: 2px solid var(--color-black);
 }
-.filters__type > p{
+.filters__type > p {
   margin-bottom: 1rem;
 }
-.filters__type label{
+.filters__type label {
   color: white;
 }
-.filters__type .form-control{
+.filters__type .form-control {
   margin-bottom: 1rem;
 }
 input[type="radio"],
@@ -307,25 +324,32 @@ input[type="checkbox"] {
 }
 input[type="radio"] + label::before,
 input[type="checkbox"] + label::before {
-  margin-right: 0.7rem;
-  vertical-align: middle;
-  height: 16px;
-  width: 16px;
   content: " ";
   display: inline-block;
+  width: 16px;
+  height: 16px;
   background-color: var(--color-black);
+  vertical-align: middle;
+  margin-right: 0.7rem;
 }
-input[type="radio"]:checked + label::before
-{
+input[type="radio"]:checked + label::before {
   border: 4px solid var(--color-primary);
   background-color: white;
 }
-input[type="checkbox"]:checked + label::before{
+input[type="checkbox"]:checked + label::before {
   background-color: var(--color-primary);
+  content: url('data:image/svg+xml; utf8, <svg xmlns="http://www.w3.org/2000/svg" width="12" height="14" fill="white" viewBox="0 0 24 24"><path d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"/></svg>');
+  text-align: center;
 }
 input[type="radio"] + label::before {
   border-radius: 50%;
 }
 input[type="checkbox"] + label::before {
   border-radius: 2px;
+}
+.sidebar__action{
+  background-color: var(--color-black);
+  width: 100%;
+  position: absolute;
+  bottom: 0;
 }
